@@ -1,0 +1,106 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+
+import { obras } from "../utils/getObras";
+---
+
+<Layout title="Alex leira">
+  <div class="descargas">
+    <h2 class="title">Descargas</h2>
+
+    <div class="grid">
+      {
+        obras.map((obra) => (
+          <div class="card">
+            <div class="img">
+              <Image class="imagen" src={obra.imagen} alt={obra.title} />
+            </div>
+            <div class="contenido">
+				<div class="texto">
+					<h2>{obra.title}</h2>
+					<p class="tipo">{obra.tipo}</p>
+					<p class="fecha">{obra.fechaLanzamiento}</p>
+				</div>
+				<a href="#" class="boton">
+					<ion-icon class="icono" name="document"></ion-icon>
+					Descargar pdf
+				</a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Layout>
+
+<style>
+	.descargas {
+		padding: 60px;
+
+	}
+
+	.grid {
+
+	}
+
+	.card {
+		background: #fff;
+		border-radius: 14px;
+		display: flex;
+		margin-bottom: 30px;
+	}
+
+	.card:last-child {
+		margin-bottom: 0;
+	}
+
+	.card .img {
+		flex: 1;
+	}
+
+	.card .img .imagen {
+		width: 100%;
+		height: auto;
+		vertical-align: top;
+		border-radius: 14px 0 0 14px;
+	}
+
+	.card .contenido {
+		flex: 4;
+		padding: 30px;
+		display: flex;
+		justify-content: space-between;
+		align-items: start;
+	}
+
+	.texto h2,
+	.texto p {
+		margin-bottom: 10px;
+	}
+
+	.texto h2 {
+		font-family: "Open Sans", sans-serif;
+	}
+
+	.texto p {
+		font-size: 14px;
+	}
+
+	.icono {
+		display: inline-block;
+		margin-right: 5px;
+	}
+
+	a {
+		text-decoration: none;
+		color: #000;
+		padding: 10px 20px;
+		background: #D9D9D9;
+		border-radius: 5px;
+		font-size: 14px;
+		text-transform: uppercase;
+	}
+
+
+</style>

@@ -1,0 +1,93 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { obras } from "../utils/getObras";
+
+---
+
+<Layout title="Alex leira">
+	<div class="obras">
+		<h2 class="title">
+			Obras
+		</h2>
+
+		<div class="grid">
+			{
+				obras.map(obra => 
+					<div class="card">
+						<ion-icon class="icono" name="book"></ion-icon>
+						<h3>
+							 { obra.title }
+						</h3>
+
+						<p class="texto">
+							{ obra.tipo }
+						</p>
+
+						<p class="fecha">
+							{ obra.fechaLanzamiento }
+						</p>
+					</div>
+				)
+			}
+			
+		</div>
+	</div>
+</Layout>
+
+<style>
+
+	.obras {
+		padding: 60px;
+	}
+	.grid {
+		width: fit-content;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		margin: auto;
+		gap: 50px;
+		justify-content: center;
+	}
+
+	.card {
+		background: #fff;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		color: #000;
+		padding: 30px;
+		border-radius: 14px;
+		aspect-ratio: 1/1;
+		text-align: center;
+		width: 240px;
+	}
+
+	.card:last-child:nth-child(3n+1):last-child {
+    	grid-column: 2 / 3;
+	}
+
+	.card:last-child:nth-child(3n+2):last-child {
+		grid-column: 2 / span 2; /* si hay 2 en la última fila, centralos */
+	}
+
+	.card .icono,
+	.card h3,
+	.card p {
+		margin: auto;
+		margin-bottom: 10px;
+	}
+
+	.card h3,
+	.card p {
+		font-family: "Open Sans", sans-serif;
+	}
+
+	.card .h3 {
+		font-weight: 800;
+
+	}
+
+	.card .fecha {
+		font-weight: lighter;
+	}
+
+</style>

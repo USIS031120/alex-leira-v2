@@ -1,0 +1,65 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+
+---
+<Layout title="Alex leira">
+	<section class="contacto">
+		<h2 class="title">Contacto</h2>
+	<form class="formulario">
+		<div class="inputs">
+			<input type="text" placeholder="Nombre">
+			<input type="email" placeholder="Correo">
+		</div>
+		<textarea class="mensaje" name=""></textarea>
+		<input type="submit" value="Enviar">
+	</form>
+</section>
+</Layout>
+
+
+<style>
+
+	.contacto {
+		padding: 60px;
+	}
+
+	.inputs {
+		width: 100%;
+		display: flex;
+		/* justify-content: space-evenly; */
+		flex-wrap: wrap;
+		/* flex-direction: row; */
+		gap: 30px;
+	}
+
+	input,
+	.mensaje {
+		width: 100%;
+		padding: 14px;
+		outline: none;
+		border-radius: 10px;
+		margin-bottom: 30px;
+		border: 1px solid #969696;
+	}
+
+	input {
+		display: block;
+		flex: 1;
+
+	}
+
+	.mensaje {
+		flex: 2;
+		height: 500px;
+
+	}
+
+	input[type="submit"] {
+		background: var(--primary);
+		color: #fff;
+		font-size: 16px;
+		padding: 18px;
+	}
+
+</style>

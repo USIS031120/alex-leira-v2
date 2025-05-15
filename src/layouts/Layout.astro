@@ -1,3 +1,14 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,18 +16,96 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<Nav title={title} />
+		<div class="content">
+			<div class="menu-icono">
+				<ion-icon name="menu"></ion-icon>
+			</div>
+			<slot />
+			<Footer />
+		</div>
 	</body>
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	<script>
+		const nav = document.querySelector(".nav");
+		const menu = document.querySelector(".menu-icono");
+		
+		menu?.addEventListener("click", () => {
+			nav?.classList.toggle("visible");
+		});
+	</script>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Merienda:wght@300..900&family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Pinyon+Script&display=swap');
+	:root {
+		--primary: #242633;
 	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	.content {
+		width: 82%;
+		position: fixed;
+		top: 0;
+		right: 0;
+		height: 100vh;
+		margin-left: 310px;
+		overflow: auto;
+	}
+
+	.menu-icono {
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-size: 24px;
+		color: #fff;
+		margin: 16px;
+		display: none;
+	}
+
+	.nav.visible {
+		transform: translateX(0);
+	}
+	body {
+		background: #E1E1E1;
+		color: #000;
+		font-size: 16px;
+		font-family: "Open Sans", sans-serif;
+	}
+
+	h1, h2, h3 {
+		font-family: "Lobster";
+	}
+
+	h2.title {
+		text-align: center;
+		font-size: 32px;
+		margin-bottom: 60px;
+	}
+
+	@media
+	(max-width: 470px) {
+		
+		.menu-icono {
+			display: block;
+		}
+		.content {
+			width: 100%;
+		}
+
+		.nav {
+			width: 100%;
+			transform: translateX(-100%);
+		}
+	}
+	
+
 </style>

@@ -1,11 +1,109 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro"
+import { imagenEscritorDeEncantamientos } from "../utils/getImages"
+import { Image } from "astro:assets"
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Alex leira">
+	<div class="hero">
+		<div class="hero-content">
+			<h1>Alex Leira</h1>
+			<h2>Escritor / Autor</h2>
+		</div>
+	</div>
+	<div class="content-index">
+		<div class="ultimo">
+			<h2 id="ultimo-lanzamiento" class="title">Nuevo lanzamiento</h2>
+	
+			<Image class="imagen" src={imagenEscritorDeEncantamientos} alt="el escritor de encantamientos" />
+			
+			<h3 class="titulo-texto">
+				El escritor de encantamientos
+			</h3>
+			<p class="sipnosis">Sipnosis</p>
+			<p class="texto">En la tranquila biblioteca de su pueblo, una lectora apasionada descubre un libro que parece escrito para ella: un romance entre un mago y un hada que desafía el tiempo y el espacio. Pero lo que comienza como una historia fascinante pronto se transforma en algo mucho más personal. Entre sus páginas, secretos enigmáticos se entrelazan con su propia vida. Mientras desvela pistas ocultas, se adentra en una aventura donde magia y realidad se funden, enfrentando los misterios del amor, el destino y los secretos que podrían cambiarlo todo.
+Romántica, misteriosa y llena de magia, "El Escritor de Encantamientos" es una historia para quienes creen que el amor verdadero puede encontrarse en los lugares más insospechados, y que seguir las huellas del corazón siempre lleva a un destino inesperado.</p>
+		</div>
+
+		<div class="cita-textual">
+			<h2>LOS MOMENTOS MÁGICOS SE VIVEN EN TU MENTE, LAS SENSACIONES, EN TU CORAZÓN.</h2>
+		</div>
+	</div>
 </Layout>
+
+<style>
+	.hero {
+		background: url("../assets/img/fondo.png");
+		background-size: cover;
+		background-position: center;
+		height: 100%;
+		display: flex;
+		justify-content: left;
+		align-items: center;
+	}
+
+	.hero .hero-content {
+		color: #fff;
+		margin-left: 147px;
+	}
+
+	.hero .hero-content h1 {
+		font-size: 64px;
+	}
+
+	.hero .hero-content h2 {
+		font-size: 22px;
+	}
+
+	.hero-content h1, .hero-content h2 {
+		font-family: "Merienda", sans-serif;
+	}
+
+	.imagen {
+		width: 100%;
+		height: auto;
+		border-radius: 10px;
+		margin-bottom: 50px;
+	}
+
+	.content-index {
+		padding: 60px;
+	}
+
+	h2.title {
+		text-align: center;
+		font-size: 32px;
+		margin-bottom: 60px;
+	}
+
+	p {
+		text-align: justify;
+		line-height: 28px;
+	}
+	.sipnosis {
+		text-align: center;
+	}
+
+	.texto {
+
+	}
+
+	.titulo-texto {
+		font-size: 24px;
+		font-family: "Open Sans", sans-serif;
+		font-weight: bold;
+		text-align: center;
+		margin-bottom: 50px;
+	}
+
+	.cita-textual {
+		background: #fff;
+		padding: 64px;
+	}
+
+	.cita-textual h2 {
+		font-size: 32px;
+		font-family: "Merienda", sans-serif;
+		text-align: center;
+	}
+</style>

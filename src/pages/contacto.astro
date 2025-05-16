@@ -6,12 +6,12 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Alex leira">
 	<section class="contacto">
 		<h2 class="title">Contacto</h2>
-	<form class="formulario">
+	<form action="https://formsubmit.co/ixelfred@gmail.com" method="POST" class="formulario">
 		<div class="inputs">
-			<input type="text" placeholder="Nombre">
-			<input type="email" placeholder="Correo">
+			<input name="name" type="text" placeholder="Nombre">
+			<input name="email" type="email" placeholder="Correo">
 		</div>
-		<textarea class="mensaje" name=""></textarea>
+		<textarea name="message" class="mensaje" name=""></textarea>
 		<input type="submit" value="Enviar">
 	</form>
 </section>

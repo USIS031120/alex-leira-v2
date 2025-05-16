@@ -22,7 +22,7 @@ import { obras } from "../utils/getObras";
 					<p class="tipo">{obra.tipo}</p>
 					<p class="fecha">{obra.fechaLanzamiento}</p>
 				</div>
-				<a href="#" class="boton">
+				<a href={ obra.descargar } class="boton">
 					<ion-icon class="icono" name="document"></ion-icon>
 					Descargar pdf
 				</a>
@@ -37,11 +37,6 @@ import { obras } from "../utils/getObras";
 <style>
 	.descargas {
 		padding: 60px;
-
-	}
-
-	.grid {
-
 	}
 
 	.card {
@@ -102,7 +97,7 @@ import { obras } from "../utils/getObras";
 		font-size: 14px;
 		text-transform: uppercase;
 	}
-	@media (max-width: 470px) {
+	@media (max-width: 710px) {
 		.descargas {
 			padding: 25px;
 		}

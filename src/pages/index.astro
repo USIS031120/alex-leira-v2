@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import { imagenEscritorDeEncantamientos } from "../utils/getImages"
+import { imagenEscritorDeEncantamientos, imagenNuevo } from "../utils/getImages"
 import { Image } from "astro:assets"
+import { obras } from "../utils/getObras"
 ---
 
 <Layout title="Alex leira">
@@ -12,6 +13,25 @@ import { Image } from "astro:assets"
 		</div>
 	</div>
 	<div class="content-index">
+		<div class="nuevo">
+			<div class="imagen">
+				<Image class="img" src={ imagenNuevo } alt="imagen" />
+			</div>
+			<div class="libros">
+				{ obras.map( obra => 
+					<div class="libro">
+						<a href={ obra.enlaceCompra }>
+						<Image class="img" src={ obra.imagen } alt={ obra.title } />
+						</a>
+						<div class="titulo">
+							<a href={ obra.enlaceCompra }>
+								{ obra.title}
+							</a>
+						</div>
+					</div>
+				 ) }
+			</div>
+		</div>
 		<div class="ultimo">
 			<h2 id="ultimo-lanzamiento" class="title">Nuevo lanzamiento</h2>
 	
@@ -34,6 +54,45 @@ Romántica, misteriosa y llena de magia, "El Escritor de Encantamientos" es una 
 </Layout>
 
 <style>
+
+	.img {
+		width: 100%;
+		height: auto;
+		vertical-align: top;
+		border-radius: 12px;
+	}
+
+	.titulo a {
+		color: #fff;
+	}
+
+	a {
+		text-decoration: none;
+		color: #000;
+	}
+
+	.titulo {
+		padding: 10px;
+		text-align: center;
+		border-radius: 12px;
+		background: #3d6772;
+		color: #fff;
+		margin-top: 10px;
+	}
+
+	.libros {
+		display: flex;
+		justify-content: center;
+		gap: 15px;
+		flex-wrap: wrap;
+		width: 90%;
+		margin: auto;
+		margin-bottom: 60px;
+	}
+
+	.libro {
+		width: 16%;
+	}
 	.hero {
 		background: url("../assets/img/fondo.png");
 		background-size: cover;
@@ -86,10 +145,6 @@ Romántica, misteriosa y llena de magia, "El Escritor de Encantamientos" es una 
 		text-align: center;
 	}
 
-	.texto {
-
-	}
-
 	.titulo-texto {
 		font-size: 24px;
 		font-family: "Open Sans", sans-serif;
@@ -110,13 +165,15 @@ Romántica, misteriosa y llena de magia, "El Escritor de Encantamientos" es una 
 	}
 
 	@media 
-	(max-width: 470px) {
+	(max-width: 710px) {
 
 
 		.hero .hero-content h1 {
 			font-size: 38px;
 		}
-
+		.libro {
+			width: 45%;
+		}
 		.hero .hero-content h2 {
 			font-size: 24px;
 		}

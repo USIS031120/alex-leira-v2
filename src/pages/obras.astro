@@ -90,4 +90,28 @@ import { obras } from "../utils/getObras";
 		font-weight: lighter;
 	}
 
+
+	@media (max-width: 470px) {
+		.grid {
+			grid-template-columns: 1fr;
+			width: 100%;
+
+		}
+
+		.card {
+			width: 100%;
+		}
+
+		.card:last-child:nth-child(3n+1):last-child {
+    	grid-column: 1
+	}
+
+	.obras {
+		padding: 25px;
+	}
+
+	.card:last-child:nth-child(3n+2):last-child {
+		grid-column: 1 /* si hay 2 en la última fila, centralos */
+	}
+	}
 </style>

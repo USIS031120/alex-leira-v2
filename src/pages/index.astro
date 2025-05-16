@@ -15,7 +15,9 @@ import { Image } from "astro:assets"
 		<div class="ultimo">
 			<h2 id="ultimo-lanzamiento" class="title">Nuevo lanzamiento</h2>
 	
-			<Image class="imagen" src={imagenEscritorDeEncantamientos} alt="el escritor de encantamientos" />
+			<a href="https://www.amazon.com/-/es/ALEX-LEIRA/dp/B0DTJ95JD5/ref=sr_1_1?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dib=eyJ2IjoiMSJ9.vhQNvj8q-_eHaUr6eSgSBCkBAzOdlEUOmFAAcxI6JKHcDiBO2Eul2qIAaefW9DQKsjRzNmgauw7g8wB977I0JSI_C_jj7MjE3C1xZp1d1NY.tAxgB6eU6hlnYllsos8oNFdh0YN9j2OLIzvoqJlsBQY&dib_tag=se&keywords=el+escritor+de+encantamientos&qid=1737511819&sr=8-1">
+				<Image class="imagen" src={imagenEscritorDeEncantamientos} alt="el escritor de encantamientos" />
+			</a>
 			
 			<h3 class="titulo-texto">
 				El escritor de encantamientos
@@ -105,5 +107,37 @@ Romántica, misteriosa y llena de magia, "El Escritor de Encantamientos" es una 
 		font-size: 32px;
 		font-family: "Merienda", sans-serif;
 		text-align: center;
+	}
+
+	@media 
+	(max-width: 470px) {
+
+
+		.hero .hero-content h1 {
+			font-size: 38px;
+		}
+
+		.hero .hero-content h2 {
+			font-size: 24px;
+		}
+
+		.hero {
+			justify-content: center;
+		}
+
+		.hero .hero-content {
+			margin-left: 0;
+		}
+
+		.content-index {
+			padding: 25px;
+		}
+
+		.cita-textual {
+			padding: 30px;
+		}
+		.cita-textual h2 {
+			font-size: 18px;
+		}
 	}
 </style>

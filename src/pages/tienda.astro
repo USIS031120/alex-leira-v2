@@ -30,7 +30,7 @@ import { obras } from "../utils/getObras";
 								{ obra.anio }
 							</p>
 						</div>
-						<a href="#" class="boton">Comprar</a>
+						<a href={ obra.enlaceCompra } class="boton">Comprar</a>
 					</div>
 				</div>
 			 ) }
@@ -53,6 +53,7 @@ import { obras } from "../utils/getObras";
 		/* clear: both; */
 		display: flex;
 		margin-bottom: 50px;
+		flex-wrap: wrap;
 	}
 
 	.card:last-child {
@@ -107,5 +108,27 @@ import { obras } from "../utils/getObras";
 		font-weight: lighter;
 		display: inline-block;
 		margin-top: 40px;
+	}
+
+	@media (max-width: 470px) {
+		.tienda {
+			padding: 25px;
+		}
+
+		.card {
+
+		}
+
+		.card .img {
+			width: 100%;
+		}
+
+		.card h2 {
+			font-size: 26px;
+		}
+
+		.card .img .imagen {
+			border-radius: 14px 14px 0 0;
+		}
 	}
 </style>

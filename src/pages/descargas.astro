@@ -49,6 +49,7 @@ import { obras } from "../utils/getObras";
 		border-radius: 14px;
 		display: flex;
 		margin-bottom: 30px;
+		flex-wrap: wrap;
 	}
 
 	.card:last-child {
@@ -100,6 +101,25 @@ import { obras } from "../utils/getObras";
 		border-radius: 5px;
 		font-size: 14px;
 		text-transform: uppercase;
+	}
+	@media (max-width: 470px) {
+		.descargas {
+			padding: 25px;
+		}
+
+		.card .img {
+			width: 100%;
+			flex: none;
+		}
+
+		.card .contenido {
+			flex: none;
+			width: 100%;
+		}
+
+		.card .img .imagen {
+			border-radius: 14px 14px 0 0;
+		}
 	}
 
 
